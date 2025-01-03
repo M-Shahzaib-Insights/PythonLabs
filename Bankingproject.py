@@ -11,6 +11,7 @@ class Account:
         self.balance = initial_balance
         self.transaction_history = [] # for storing history of transactions
 
+    # Deposit function is to add the amount to the selected account
     def deposit(self, amount):
         if amount <= 0:
             print("Deposit amount must be positive.")
@@ -19,6 +20,7 @@ class Account:
         self.transaction_history.append(f"Deposited: {amount}")
         print(f"Deposited {amount}. Current balance: {self.balance}")
 
+    # this function is to withdraw the amount from the selected account
     def withdraw(self, amount):
         if amount <= 0:
             print("Withdrawal amount must be positive.")
@@ -30,6 +32,7 @@ class Account:
         self.transaction_history.append(f"Withdraw: {amount}")
         print(f"Withdraw: {amount}. Current Balance: {self.balance}")
 
+    # this will subtract the amount from main account and add it to the other account
     def transfer(self, target_account, amount):
         if amount <= 0:
             print("Withdrawal amount must be positive.")
@@ -43,9 +46,11 @@ class Account:
         target_account.transaction_history.append("Received: {amount} from {self.account_number}")
         print(f"Transferred {amount} to account {target_account.account_number}")
 
+    # To view your balance summary
     def view_balance(self):
         print(f"Current balance for account {self.account_number}: {self.balance}")
 
+    # To view your transaction history
     def view_transaction_history(self):
         if not self.transaction_history:
             print("No transactions available.")
